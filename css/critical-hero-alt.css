@@ -1,3 +1,8 @@
+html,
+body {
+    overflow-x: hidden;
+}
+
 /* Slideshow  */
 
 .hero-section,
@@ -175,4 +180,5 @@
     .slideshow {
         aspect-ratio: 1 / 1;
     }
+
 }
