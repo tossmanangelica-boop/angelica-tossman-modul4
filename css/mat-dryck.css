@@ -1,0 +1,1054 @@
+/* ------------ Typsnitt ------- */
+
+/* tangerine-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Tangerine';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/tangerine-v18-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* tangerine-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Tangerine';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/tangerine-v18-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* forum-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Forum';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/forum-v19-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* inter-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/inter-v20-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-500 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/inter-v20-latin-500.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/inter-v20-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/*////////////////////////////////////////////////////////////////////
+   STANDARD CONTENT BLOCKS
+////////////////////////////////////////////////////*/
+.main .standard-grid-block {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+
+    place-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 4rem;
+    width: 100%;
+}
+
+.last-block {
+    padding-bottom: 3rem;
+}
+
+/*////////////////////////////////////////////////////////////////////
+  CONTENT BLOCKS
+////////////////////////////////////////////////////*/
+
+/* - Bild vänster - text höger sektion - */
+.image-text-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "image"
+        "text";
+    align-items: center;
+    /* centrera vertikalt */
+    justify-content: center;
+
+
+    position: relative;
+    margin: 0 auto;
+    max-width: 1400px;
+    overflow: hidden;
+}
+
+
+/* Omvänd */
+.reverse.image-text-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "text"
+        "image";
+
+}
+
+.round.image-text-section,
+.reverse.round.image-text-section {
+    overflow: hidden;
+    padding-inline: clamp(1.5rem, 6vw, 8rem);
+    padding-block: 1.5rem;
+    justify-items: center;
+    width: 100%;
+
+}
+
+.round.image-text-section .image-container img,
+.reverse.round.image-text-section .image-container img {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+/*  Bild   */
+.image-container {
+    grid-area: image;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+/*  Text  */
+.text-container {
+    grid-area: text;
+    max-width: min(55ch, 70vw);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-container h3 {
+    margin-top: 0px;
+}
+
+.text-container p {
+    margin-bottom: 0px;
+}
+
+
+/* Lägg en ram runt en bild i ett annat block + ev border-radius  */
+
+.image-text-section>.img-wrapper,
+.image-text-section-reverse>.img-wrapper {
+    padding: 2rem;
+}
+
+.img-wrapper img {
+    border-radius: 50%;
+}
+
+
+
+/*///////////////////////////////////////////////////////////////////
+-   BILDGALLERI MED SCROLL  -
+//////////////////////////////////////////////////////////////////*/
+
+/* Bildgalleri på en rad med scroll */
+
+.bildgalleri-wrapper {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.bildgalleri-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    width: 100vw;
+    /* fyll hela sidans bredd */
+    max-width: 100%;
+    /* men inte större än sidan */
+    box-sizing: border-box;
+    justify-content: flex-start;
+    /* börja från vänster */
+
+    /* Dölj scroll-bar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+.bildgalleri-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Edge */
+}
+
+.bildgalleri-scroll img {
+    flex: 0 0 auto;
+    height: auto;
+    object-fit: cover;
+    scroll-snap-align: start;
+    border-radius: 0px;
+}
+
+.scroll-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 50%;
+    z-index: 2;
+    transition: background 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.scroll-btn.gallery-prev {
+    left: 0.5rem;
+}
+
+.scroll-btn.gallery-next {
+    right: 0.5rem;
+}
+
+/* Döljer pilar mjukt */
+.scroll-btn.arrow-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/*.............................................*/
+
+/* 2 bilder: ca 360px → 499px */
+@media (max-width: 499px) {
+    .bildgalleri-scroll img {
+        flex-basis: calc((100vw - 3rem) / 2);
+    }
+}
+
+/* 3 bilder: 500px → 600px */
+@media (min-width: 500px) and (max-width: 600px) {
+    .bildgalleri-scroll img {
+        flex-basis: calc((100vw - 4rem) / 3);
+    }
+}
+
+/* 4 bilder: 601px → 900px */
+@media (min-width: 601px) and (max-width: 900px) {
+    .bildgalleri-scroll img {
+        flex-basis: calc((100vw - 5rem) / 4);
+    }
+
+    .scroll-btn {
+        display: block;
+    }
+
+    /* Pilar döljs mjukt när man når ändarna */
+    .scroll-btn.arrow-hidden {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+}
+
+/* 5 bilder: 901px → uppåt */
+@media (min-width: 901px) {
+    .bildgalleri-scroll img {
+        flex-basis: calc((100vw - 6rem) / 5);
+    }
+}
+
+/* Block-wrapper - samla ihop flera blocks för att justera specifika marginaler före/efter */
+.block-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.block-wrapper.hide2 {
+    display: none;
+}
+
+
+
+/*///////////////////////////////////////////////////////////
+  -   FÄRGER CONTENT BLOCK   -
+  /////////////////////////////////////////////////////*/
+.lightest-green {
+    background-color: rgb(210, 216, 217);
+    color: rgb(48, 56, 58);
+}
+
+/* /////////////////////////////////////////////////
+  -  KNAPPAR M.M  -  
+  ////////////////////////////////////////////////*/
+
+/*///////////  CTA-knapp   ///////////*/
+
+/*  Grund-design  */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+a.cta-btn {
+    padding: 8px 12px;
+    border-radius: 40px;
+    margin-top: 35px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    font-family: "inter";
+    font-size: clamp(0.5rem, 0.8vw + 0.7rem, 1rem);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    -webkit-text-size-adjust: 100%;
+    /* för iOS */
+    text-size-adjust: 100%;
+    /* standard */
+}
+
+/* Outline-färger  */
+.btn-outline-green {
+    border: 2px solid rgb(69, 80, 83);
+    color: rgb(69, 80, 83);
+}
+
+.cta-btn.btn-outline-green:hover {
+    background-color: rgb(188, 196, 199);
+}
+
+/*/////////////////////////////////////////////*/
+
+/*  Linje i text-block  */
+
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.line img {
+    width: 180px;
+    height: auto;
+}
+
+/*////////////////////////////////////////////////////////
+-  TYPOGRAFI  - 
+//////////////////////////////////////////////////////////////////*/
+
+
+
+h2.under-line,
+h3.under-line,
+.text-container h3.under-line {
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: clamp(2.2rem, 3.5vw + 1rem, 2.8rem);
+    margin-bottom: 10px;
+    margin-top: 35px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: clamp(1rem, 1.2vw + 0.8rem, 1.25rem);
+
+}
+
+p.monogram {
+    margin-bottom: 15px;
+}
+
+ul {
+    margin-bottom: 12px;
+    padding-left: 2rem;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+
+/*////////////////////////////////////////////////////////
+   FORMULÄR 
+///////////////////////////////////////////////////////////*/
+
+/*  Layout  */
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    /* centrerar hela griden */
+    justify-items: center;
+    justify-self: center;
+    align-items: start;
+    margin: 0 auto;
+
+    width: min(100%, 450px);
+
+    padding-inline: clamp(1rem, 4vw, 2rem);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    box-sizing: border-box;
+    font-family: inherit;
+    letter-spacing: 0.04em;
+}
+
+
+form,
+fieldset,
+.fieldset-item,
+.field-item,
+input {
+    max-width: 100%;
+
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: "Inter", sans-serif;
+
+}
+
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    justify-content: center;
+    align-items: start;
+    margin: 0 auto;
+    box-sizing: border-box;
+    column-gap: 1rem;
+
+    width: 90%;
+    max-width: 370px;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    margin-top: 10px;
+    margin-bottom: 0px;
+
+    border-left: none;
+    Border-right: none;
+    border-bottom: none;
+
+
+}
+
+form.dark-green fieldset.last {
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgb(97, 112, 116);
+    padding-bottom: 2rem;
+}
+
+form.dark-green fieldset,
+fieldset.last {
+    border-top: 1px solid rgb(69, 80, 83);
+}
+
+
+
+.span-2 {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 330px;
+}
+
+.fieldset-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.field-item {
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 1.5rem;
+}
+
+
+form input,
+select {
+    width: 15ch;
+    /* ta hela radens bredd */
+    min-width: 8rem;
+    max-width: 100%;
+    /* undvik att de blir för smala */
+    box-sizing: border-box;
+    /* inkludera padding i total*/
+
+    border-radius: 10px;
+    padding: 0.4rem;
+    margin-left: 0px;
+    margin-top: 8px;
+
+}
+
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+form.dark-green :is(input,
+    select,
+    textarea) {
+    background-color: rgb(243, 245, 245);
+    border: 1px solid rgb(97, 112, 116);
+}
+
+form textarea {
+    box-sizing: border-box;
+    /* inkludera padding i total*/
+    min-width: 15ch;
+
+    width: 100%;
+    height: 8rem;
+    border-radius: 10px;
+    padding: 0.4rem;
+    margin-left: 0px;
+    margin-top: 8px;
+}
+
+
+/*  Kanpp för formulär  */
+
+button[type="submit"] {
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding: 10px 15px;
+
+
+    border-radius: 40px;
+
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+form.dark-green button[type="submit"] {
+    background-color: rgb(243, 245, 245);
+    color: rgb(69, 80, 83);
+    border: 2px solid rgb(97, 112, 116);
+}
+
+form.dark-green button[type="submit"]:hover {
+    background-color: rgb(219, 223, 221);
+}
+
+input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"],
+select {
+    cursor: pointer;
+}
+
+form.dark-green :is(select:hover,
+    input:hover,
+    textarea:hover) {
+    background-color: rgb(243, 245, 245);
+}
+
+
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"] {
+    cursor: text;
+}
+
+form.dark-green :is(input[type="text"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    select,
+    textarea) {
+    color: rgb(48, 56, 58);
+    letter-spacing: 0.04em;
+}
+
+form.dark-green :is(input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="tel"]:focus,
+    input[type="date"]:focus,
+    input[type="time"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="month"]:focus,
+    input[type="week"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    select:focus,
+    textarea:focus) {
+    /* Tar bort webbläsarens standard-outline */
+    outline: none;
+    /* Lägger till skuggan */
+    /* Syntax: horisontell-offset vertikal-offset oskärpa spridning färg */
+    box-shadow: 0 0 10px rgb(97, 112, 116);
+    /* Ändrar kantfärgen samtidigt för en tydligare effekt */
+    border-color: rgb(97, 112, 116)
+}
+
+form.dark-green :is(input,
+    textarea::placeholder) {
+    color: rgb(97, 112, 116);
+    letter-spacing: 0.04em;
+}
+
+/* .... Custom checkbox och radio-knapp.... */
+
+.checkbox-container,
+.radio-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+form.dark-green .checkbox-container,
+form.dark-green .radio-container {
+    color: rgb(48, 56, 58);
+}
+
+/* Dölj själva inputen men behåll klickbarheten */
+.checkbox-container input,
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    margin-bottom: 20px;
+}
+
+/* Själva rutan */
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateY(-5%);
+    height: 1.2rem;
+    width: 1.2rem;
+
+    border-radius: 5px;
+    transition: all 0.25s ease;
+}
+
+/* Själva rutan */
+.radio-checkmark {
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 40px;
+    transition: all 0.25s ease;
+}
+
+form.dark-green .checkmark,
+form.dark-green .radio-checkmark {
+    background-color: rgb(238, 238, 240);
+    border: 1px solid rgb(97, 112, 116);
+}
+
+/* Hover-effekt */
+form.dark-green .checkbox-container:hover .checkmark,
+form.dark-muave .checkbox-container:hover .checkmark,
+form.dark-green .radio-container:hover .radio-checkmark,
+form.dark-muave .radio-container:hover .radio-checkmark {
+    background-color: rgb(243, 245, 245);
+}
+
+
+/* När den är markerad */
+form.dark-green .checkbox-container input:checked~.checkmark,
+form.dark-green .radio-container input:checked~.radio-checkmark {
+    background-color: rgb(97, 112, 116);
+    border-color: rgb(97, 112, 116);
+}
+
+
+/* Den lilla bocken */
+.checkmark::after,
+.radio-checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Visa bocken när den är markerad */
+.checkbox-container input:checked~.checkmark::after,
+.radio-container input:checked~.radio-checkmark::after {
+    display: block;
+}
+
+/* Bockens stil */
+.checkbox-container .checkmark::after,
+.radio-container .radio-checkmark::after {
+    left: 6px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    transition: all 0.25s ease;
+}
+
+
+/*  ----------------------  */
+/* ... Sub-menu kommer fram vid inmatning av annat fält ...  */
+
+/*formulär på "Mat och dryck"-sidan */
+
+/* Göm fältet som standard */
+.radio-hidden {
+    display: none;
+}
+
+/* Mjuk övergång när det visas */
+#choose-meal-fields {
+    margin-top: 10px;
+    transition: opacity 0.3s ease;
+}
+
+/* ----------------------------------*/
+/* .... Rubriker och labels ... */
+
+
+.label-display-block {
+    font-weight: 500;
+    display: block;
+}
+
+form.dark-green :is(.label-display-block, label, h2) {
+    color: rgb(48, 56, 58);
+}
+
+
+form .label-terms-crossbox {
+    font-style: italic;
+    line-height: 1.2;
+}
+
+form .label-terms-crossbox a {
+    text-decoration: none;
+}
+
+p.form-text {
+    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-right: 0px;
+}
+
+/*///////////////////////////////////////////////////////
+  -   FOOTER  -
+/////////////////////////////////////////////////*/
+
+
+footer.green {
+    background-color: rgb(69, 80, 83);
+    color: rgb(210, 216, 217);
+}
+
+footer .top-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "logo-footer"
+        "info-bar";
+
+    row-gap: 2rem;
+
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+footer .top-section .info-bar-footer {
+    grid-area: info-bar;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+footer .top-section .logo-container {
+    grid-area: logo-footer;
+}
+
+/*  Information  */
+
+footer .info-bar-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    column-gap: 1.5rem;
+
+    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    letter-spacing: 0.06em;
+    font-weight: 300;
+    text-align: left;
+}
+
+footer .info-bar-footer a {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.2s ease;
+    margin-left: 5px;
+
+    text-decoration: none;
+    font-size: clamp(1rem, 1vw, 1.4rem);
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+
+    text-align: right;
+    letter-spacing: 0.05em;
+}
+
+
+/* Ikoner */
+
+svg.icons-footer {
+    cursor: pointer;
+    width: 1.3em;
+    height: 1.3em;
+    transition: color 0.2s;
+    margin-right: 5px;
+}
+
+svg.icons-footer {
+    fill: rgb(246, 243, 245);
+}
+
+svg.icons-footer {
+    fill: rgb(243, 245, 245)
+}
+
+.top-section .logo-container {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .logo-footer {
+    width: 11em;
+    height: auto;
+    display: block;
+}
+
+/* By-line  */
+
+.by-line-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+footer.green .by-line-container {
+    border-top: 2px solid rgb(97, 112, 116);
+
+}
+
+p.by-line {
+    font-size: 0.8rem;
+    font-family: "Inter", sans-serif;
+}
+
+
+@media (min-width: 601px) {
+    footer .top-section {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "info-bar logo-footer";
+
+        padding-inline: clamp(2rem, 8vw, 50rem);
+
+    }
+
+
+    footer .top-section .logo-container {
+        display: flex;
+        justify-self: flex-end;
+
+    }
+
+    footer .top-section .info-bar-footer {
+        grid-area: info-bar;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 740px) {
+    /*   Bild-text sektion */
+
+    .image-text-section {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "image text";
+    }
+
+    .reverse.image-text-section {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "text image";
+    }
+
+    .top.image-text-section {
+        margin-top: 8rem;
+        margin-bottom: 2rem;
+    }
+
+    .image-text-section .text-container {
+        margin-right: 1.5rem;
+    }
+
+    .reverse.image-text-section .text-container {
+        margin-left: 1.5rem;
+        margin-right: 0rem;
+    }
+
+
+
+    .round.image-text-section {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "image text";
+        column-gap: 2rem;
+    }
+
+    .reverse.round.image-text-section {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "text image";
+        column-gap: 2rem;
+    }
+
+    .flex-column-content-block#text-mat {
+        background-color: rgb(246, 243, 245);
+    }
+
+    .block-wrapper.hide2 {
+        display: flex;
+    }
+
+    .text-container h3 {
+        margin-top: 15px;
+    }
+
+    form.small {
+        width: 40vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    .field-item {
+        flex: 1;
+        /* lika bredd på båda fälten */
+    }
+}

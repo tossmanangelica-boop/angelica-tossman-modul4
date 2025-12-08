@@ -1,0 +1,820 @@
+/* ------------ Typsnitt ------- */
+html {
+    text-size-adjust: 100%;
+}
+
+/* tangerine-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Tangerine';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/tangerine-v18-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* tangerine-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Tangerine';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/tangerine-v18-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* forum-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Forum';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/forum-v19-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* inter-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/inter-v20-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-500 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/inter-v20-latin-500.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/inter-v20-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////*/
+/*  ---------- Layout och grundstruktur ---------  */
+
+/*  ..................................*/
+
+/*  .... Standard-blocks för <main> ... */
+
+
+.main .standard-grid-block {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+
+    place-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 4rem;
+    width: 100%;
+}
+
+.last-block {
+    padding-bottom: 3rem;
+}
+
+/*  .................................  */
+
+/* ......   Content-blocks   ..... */
+
+/*  .... Gallery-grid  ... */
+
+.main .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: auto;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+}
+
+
+/* Bildgalleri på en rad med scroll */
+
+.bildgalleri-wrapper {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.bildgalleri-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    width: 100vw;
+    /* fyll hela sidans bredd */
+    max-width: 100%;
+    /* men inte större än sidan */
+    box-sizing: border-box;
+    justify-content: flex-start;
+    /* börja från vänster */
+
+    /* Dölj scroll-bar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+.bildgalleri-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Edge */
+}
+
+.bildgalleri-scroll img {
+    flex: 0 0 auto;
+    height: auto;
+    object-fit: cover;
+    scroll-snap-align: start;
+    border-radius: 0px;
+}
+
+.scroll-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 50%;
+    z-index: 2;
+    transition: background 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.scroll-btn.gallery-prev {
+    left: 0.5rem;
+}
+
+.scroll-btn.gallery-next {
+    right: 0.5rem;
+}
+
+/* Döljer pilar mjukt */
+.scroll-btn.arrow-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/*.............................................*/
+
+/* Block-wrapper - samla ihop flera blocks för att justera specifika marginaler före/efter */
+.block-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.block-wrapper.hide2 {
+    display: none;
+}
+
+
+/* ////////////////////////////////////////////*/
+
+
+/*  ... Färger för content-block   .... */
+
+.lightest-green {
+    background-color: rgb(210, 216, 217);
+    color: rgb(48, 56, 58);
+}
+
+.the-light-muave {
+    background-color: rgb(219, 208, 215);
+    color: rgb(89, 68, 80);
+}
+
+.darkest-muave {
+    background-color: rgb(89, 68, 80);
+    color: rgb(238, 238, 240)
+}
+
+
+/* /////////////////////////////////////////////////*/
+
+/*  Linje i text-block  */
+
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.line img {
+    width: 180px;
+    height: auto;
+}
+
+/*//////////////////////////////////////////////////*/
+
+/*   Typografi   */
+
+h2.monogram {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+h2.under-line,
+h3.under-line,
+.text-container h3.under-line {
+    margin-top: 30px;
+}
+
+
+
+
+h3 {
+    font-size: clamp(2.2rem, 3.5vw + 1rem, 2.8rem);
+    margin-bottom: 10px;
+    margin-top: 35px;
+}
+
+h4 {
+    font-size: clamp(1.8rem, 3vw + 1rem, 2.6rem);
+    margin-top: 25px;
+}
+
+h4.cta {
+    line-height: 1.3;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+
+p {
+    margin-bottom: 15px;
+    font-size: clamp(1rem, 1.2vw + 0.8rem, 1.25rem);
+}
+
+p.over-line,
+h2.over-line,
+li.over-line {
+    margin-bottom: 30px;
+}
+
+p.monogram {
+    margin-bottom: 15px;
+}
+
+p.under-line {
+    margin-top: 30px;
+}
+
+p.under-headline {
+    font-weight: 500;
+}
+
+p.citat {
+    font-size: clamp(2rem, 3vw + 1rem, 2.5rem);
+    line-height: 1;
+    margin: 15px 40px;
+}
+
+ul {
+    margin-bottom: 12px;
+    padding-left: 2rem;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+li span {
+    font-weight: 600;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-aligne-left {
+    text-align: left;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.inter-normal {
+    font-family: "Inter";
+    font-style: normal;
+}
+
+
+/*  Färger-typografi  */
+
+
+.color-lightest-green {
+    color: rgb(210, 216, 217);
+}
+
+
+.color-lightest-muave {
+    color: rgb(219, 208, 215);
+}
+
+/*--------------  Galleri  --------------*/
+
+figure {
+    background-color: rgb(235, 235, 238);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/*  Galleritkort  */
+figure.gallery-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    text-align: left;
+    height: 100%;
+    /* Gör att alla kort blir lika höga i grid-raden */
+}
+
+/*   Bild i produktkortet  */
+
+figure.gallery-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+figure.gallery-card.ratio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    text-align: left;
+    height: 100%;
+    aspect-ratio: 2 / 3;
+    transition: transform 0.3s ease;
+}
+
+figure.gallery-card.ratio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* beskär utan vita ytor */
+}
+
+.gallery-card.ratio:hover {
+    transform: scale(1.03);
+}
+
+
+/*Textfälten i produktkortet*/
+.gallery-card figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 1rem 1rem;
+    width: 100%;
+}
+
+figcaption .item {
+    flex-wrap: nowrap;
+    margin-bottom: 0.8rem;
+}
+
+figcaption a.cta-btn {
+    margin-top: 10px;
+}
+
+figcaption h4 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    font-family: "Forum", serif;
+    text-align: left;
+
+}
+
+figcaption h5 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: "forum", serif;
+    letter-spacing: 0.04em;
+}
+
+figcaption p {
+    font-size: 1.1rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+/* ..... Knappar .....*/
+
+/*  Grund-design  */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+a.cta-btn {
+    padding: 8px 12px;
+    border-radius: 40px;
+    margin-top: 35px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    font-family: "inter";
+    font-size: clamp(0.5rem, 0.8vw + 0.7rem, 1rem);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    -webkit-text-size-adjust: 100%;
+    /* för iOS */
+    text-size-adjust: 100%;
+    /* standard */
+}
+
+/* Outline-färger  */
+.btn-outline-green {
+    border: 2px solid rgb(69, 80, 83);
+    color: rgb(69, 80, 83);
+}
+
+.cta-btn.btn-outline-green:hover {
+    background-color: rgb(188, 196, 199);
+}
+
+.btn-outline-muave {
+
+    border: 2px solid rgb(89, 68, 80);
+    color: rgb(89, 68, 80);
+}
+
+.btn-outline-standard-light {
+    border: 2px solid rgb(246, 243, 245);
+    color: rgb(246, 243, 245);
+}
+
+.cta-btn.btn-outline-muave:hover {
+    background-color: rgb(217, 217, 221);
+}
+
+
+
+/*-----------------------------------------------------*/
+
+
+/*    -------  Footer  ------------     */
+
+/* Färger <footer>  */
+
+footer.green {
+    background-color: rgb(69, 80, 83);
+    color: rgb(210, 216, 217);
+}
+
+footer.muave {
+    background-color: rgb(89, 68, 80);
+    color: rgb(219, 208, 215);
+}
+
+footer .top-section {
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "logo-footer"
+        "info-bar";
+
+    row-gap: 2rem;
+
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+footer .top-section .info-bar-footer {
+    grid-area: info-bar;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+footer .top-section .logo-container {
+    grid-area: logo-footer;
+}
+
+/*  Information  */
+
+footer .info-bar-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    column-gap: 1.5rem;
+
+    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    letter-spacing: 0.06em;
+    font-weight: 300;
+    text-align: left;
+}
+
+footer .info-bar-footer a {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.2s ease;
+    margin-left: 5px;
+
+    text-decoration: none;
+    font-size: clamp(1rem, 1vw, 1.4rem);
+    font-family: "Inter";
+    font-weight: 400;
+
+    text-align: right;
+    letter-spacing: 0.05em;
+}
+
+footer .info-bar-footer a:hover {
+    opacity: 0.8;
+}
+
+
+
+/* Ikoner */
+
+svg.icons-footer {
+    cursor: pointer;
+    width: 1.3em;
+    height: 1.3em;
+    transition: color 0.2s;
+    margin-right: 5px;
+}
+
+svg.icons-footer {
+    fill: rgb(246, 243, 245);
+}
+
+svg.icons-footer {
+    fill: rgb(243, 245, 245)
+}
+
+svg.icons-footer:hover {
+    fill: rgb(115, 88, 105);
+}
+
+svg.icons-footer:hover {
+    fill: rgb(97, 112, 116);
+}
+
+
+.top-section .logo-container {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .logo-footer {
+    width: 11em;
+    height: auto;
+    display: block;
+}
+
+/* By-line  */
+
+.by-line-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+footer.muave .by-line-container {
+    border-top: 2px solid rgb(144, 110, 131);
+
+}
+
+footer.green .by-line-container {
+    border-top: 2px solid rgb(97, 112, 116);
+
+}
+
+p.by-line {
+    font-size: 0.8rem;
+    font-family: "Inter";
+}
+
+
+/*/////////////////////////////////////////////////////////////////////*/
+
+/* ------    Media-queries  -----------*/
+
+/*   Bildgalleri scroll */
+
+/* 2 bilder: ca 360px → 499px */
+@media (max-width: 499px) {
+    .bildgalleri-scroll img {
+        flex-basis: calc((100vw - 3rem) / 2);
+    }
+}
+
+/* 3 bilder: 500px → 600px */
+@media (min-width: 500px) and (max-width: 600px) {
+    .bildgalleri-scroll img {
+        flex-basis: calc((100vw - 4rem) / 3);
+    }
+}
+
+/* 4 bilder: 601px → 900px */
+@media (min-width: 601px) and (max-width: 900px) {
+    .bildgalleri-scroll img {
+        flex-basis: calc((100vw - 5rem) / 4);
+    }
+}
+
+/* 5 bilder: 901px → uppåt */
+@media (min-width: 901px) {
+    .bildgalleri-scroll img {
+        flex-basis: calc((100vw - 6rem) / 5);
+    }
+}
+
+
+@media screen and (min-width: 450px) {
+
+
+    /*  Galleri  */
+    .main .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .main .gallery-grid.gallery {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+}
+
+
+@media (min-width: 601px) {
+    .scroll-btn {
+        display: block;
+    }
+
+    /* Pilar döljs mjukt när man når ändarna */
+    .scroll-btn.arrow-hidden {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+
+    footer .top-section {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "info-bar logo-footer";
+
+        padding-inline: clamp(2rem, 8vw, 50rem);
+
+    }
+
+
+    footer .top-section .logo-container {
+        display: flex;
+        justify-self: flex-end;
+
+    }
+
+    footer .top-section .info-bar-footer {
+        grid-area: info-bar;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+}
+
+/*-----------------------------------------------------*/
+
+@media screen and (min-width: 740px) {
+
+    .block-wrapper.hide2 {
+        display: flex;
+    }
+
+    section.flex {
+        width: 40vw;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+
+    /* ...  Färg-teman  ...  */
+
+    .flex-column-content-block#text-mat {
+        background-color: rgb(246, 243, 245);
+    }
+
+    /*  Galleri  */
+    .main .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .main .gallery-grid.gallery {
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+
+/*-----------------------------------------------------*/
+
+@media screen and (min-width: 992px) {
+
+    .main .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .main .gallery-grid.gallery {
+        grid-template-columns: repeat(4, 1fr);
+
+    }
+
+}
+
+
+/*------------------------------------------------------------------------------------*/
+
+
+@media screen and (min-width: 1400px) {
+
+    /*  Galleri  */
+    /*  Galleri  */
+    .main .gallery-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .main .gallery-grid.gallery {
+        grid-template-columns: repeat(5, 1fr);
+
+    }
+}

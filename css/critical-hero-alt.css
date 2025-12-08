@@ -1,0 +1,178 @@
+/* Slideshow  */
+
+.hero-section,
+.hero-section-mobile {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Slideshow container */
+.hero-slideshow,
+.hero-slideshow-mobile {
+    position: relative;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    contain: layout;
+}
+
+.hero-slideshow img,
+.hero-slideshow-mobile img {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    object-fit: cover;
+    object-position: center;
+    will-change: opacity;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.hero-slideshow img {
+    filter: brightness(80%);
+}
+
+.hero-slideshow-mobile img {
+    filter: brightness(100%)
+}
+
+.hero-slideshow img.active,
+.hero-slideshow-mobile img.active {
+    opacity: 1;
+}
+
+.hero-slideshow::after,
+.hero-slideshow-mobile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+
+/* Text ovanpå slideshow */
+.hero-text-ontop {
+    position: absolute;
+    /* ligger ovanpå bilderna */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* centrerar mitten */
+    color: rgb(246, 243, 245);
+    text-align: center;
+    z-index: 2;
+    /* ovanför bilderna */
+    width: 90%;
+    margin-inline: 0;
+
+}
+
+.hero-text-ontop-solid.the-green {
+    position: absolute;
+    /* ligger ovanpå bilderna */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    padding-inline: 1rem;
+
+    background-color: rgb(146, 160, 164);
+    color: rgb(60, 69, 72);
+    text-align: center;
+}
+
+/*////////////////////////////////*/
+
+/*  Bildspel i image/text-sektion  */
+.slideshow {
+    grid-area: hero-img;
+    position: relative;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    overflow: hidden;
+    contain: layout;
+    aspect-ratio: 4 / 5;
+}
+
+.slideshow img {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    object-fit: cover;
+    object-position: center;
+    will-change: opacity;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.slideshow img.active {
+    opacity: 1;
+}
+
+.slideshow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+
+@media screen and (min-width: 400px) {
+    .hero-text-ontop {
+        width: 70%;
+    }
+
+}
+
+.hero-text-ontop h1 {
+    font-size: clamp(3.5rem, 12vw, 7rem);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 1;
+}
+
+.hero-text-ontop .monogram.hero {
+    width: clamp(90px, 25vw, 180px);
+
+}
+
+@media screen and (min-width: 550px) {
+    .hero-slideshow-mobile {
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@media screen and (min-width: 740px) {
+    .hero-section-mobile {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 991px) {
+
+    .hero-slideshow {
+        aspect-ratio: 2 / 1;
+    }
+}
+
+
+@media screen and (min-width: 1100px) {
+    .slideshow {
+        aspect-ratio: 1 / 1;
+    }
+}
