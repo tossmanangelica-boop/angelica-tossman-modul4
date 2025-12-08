@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Webbplats för hotellet Le jardin som erbjuder boende, restaurang samt event.">
+
+    <title>le jardin hôtel</title>
+
+
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="css/critical.css">
+
+    <!-- Main CSS -->
+    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/styles.css">
+    </noscript>
+
+    <link rel="preload" href="css/kontakt.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/kontakt.css">
+    </noscript>
+
+    <!--  Typsnitt  -->
+    <link rel="preload" href="../fonts/tangerine-v18-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="icon" type="image/x-icon" href="Favicon/The_muave_favicon.png">
+
+
+</head>
+<!-- ...............................................................................................-->
+
+<body class="standard-light"> <!--grid-container-->
+
+    <header>
+        <div class="inner-header muave">
+            <!--................ Header börjar här! ............ -->
+            <!---    Navigation   -->
+            <nav>
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <div class="navbar">
+                    <ul class="menu">
+                        <li class="hide1"><a href="event.html">Bröllop & event</a></li>
+
+
+                        <li class="hide2 has-submenu active">
+                            Boende
+                            <ul class="submenu">
+                                <li><a href="boende.html">Bo hos oss</a></li>
+                                <li><a href="boende.html#boka-rum">Boka rum</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="hide1 active"><a href="boende.html">Bo hos oss</a></li>
+
+                        <!--  ...................  -->
+
+                        <!--   Länkad i mobilläge och ej synlig i desktop  -->
+                        <li class="hide1"><a href="mat-och-dryck.html">Ät hos oss</a></li>
+
+                        <!--  Ej synlig i mobilläget och EJ länkad med sub-meny på desktop    -->
+                        <li class="hide2 has-submenu">
+                            Mat & dryck
+                            <ul class="submenu">
+                                <li><a href="mat-och-dryck.html">Ät hos oss</a></li>
+                                <li><a href="mat-och-dryck.html#boka-bord">Boka bord</a> </li>
+                            </ul>
+                        </li>
+
+                        <!--  Syns bara på skärmar min:765px  -->
+                        <li class="hide2 has-submenu">
+                            Bröllop och event
+                            <ul class="submenu">
+                                <li><a href="event.html">Bröllop & event</a></li>
+                                <li><a href="event.html#forfragan">Förfrågan</a></li>
+                            </ul>
+                        </li>
+                        <!-- ............................. -->
+
+                        <!--   Endats synliga i mobilläge  -->
+                        <li class="hide1"><a href="kontakt.html">Kontakta oss</a></li>
+
+                        <li class="hide1"><a href="kontakt.html#hitta">Hitta till oss</a></li>
+                        <!--  ....................  -->
+                    </ul>
+                </div>
+            </nav>
+
+            <!--    Logotype    -->
+            <div class="logo-container">
+                <a href="index.html" title="Till startsidan">
+                    <img src="Logotype/Dark_mauve_neg_logotype_header.svg" alt="logotyp" class="logo"></a>
+            </div>
+            <!-- ................................................... -->
+
+            <!--   .........  Navigerings-ikoner  ........  -->
+            <div class="icons-container">
+
+                <!--  Boka-kalender  -->
+                <a href="boende.html#boka-rum" title="Boka rum" class="calender">
+                    <svg class="icons" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176zM144 288L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 288L144 288z" />
+                    </svg>
+                </a>
+
+                <!--  Kontakt kuvert  -->
+
+                <a href="kontakt.html" title="Kontakta oss">
+                    <svg class="icons" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M125.4 128C91.5 128 64 155.5 64 189.4C64 190.3 64 191.1 64.1 192L64 192L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 192L575.9 192C575.9 191.1 576 190.3 576 189.4C576 155.5 548.5 128 514.6 128L125.4 128zM528 256.3L528 448C528 456.8 520.8 464 512 464L128 464C119.2 464 112 456.8 112 448L112 256.3L266.8 373.7C298.2 397.6 341.7 397.6 373.2 373.7L528 256.3zM112 189.4C112 182 118 176 125.4 176L514.6 176C522 176 528 182 528 189.4C528 193.6 526 197.6 522.7 200.1L344.2 335.5C329.9 346.3 310.1 346.3 295.8 335.5L117.3 200.1C114 197.6 112 193.6 112 189.4z" />
+
+                    </svg>
+                </a>
+
+                <!--   Hitta hit-pin  -->
+                <a href="kontakt.html#hitta" title="Hitta till oss">
+                    <svg class="icons" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z" />
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+    </header>
+    <!--...............................................................-->
+    <!--........... Main börjar här!  ..........-->
+
+    <div class="main">
+        <div class="standard-content-block">
+            <!-- Hero - mobil -->
+
+            <div class="text-ontop hide1">
+                <picture>
+
+                    <!-- Stående bild på skärmar upp till 549px -->
+                    <source media="(max-width: 549px)" srcset="
+                        bilder_staende/exterior(3)_300.webp 300w,     
+                        bilder_staende/exterior(3)_400.webp 400w, 
+                        bilder_staende/exterior(3)_500.webp 500w,                                
+                        bilder_staende/exterior(3)_600.webp 600w, 
+                        bilder_staende/exterior(3)_700.webp 700w" sizes="70vw">
+
+                    <!-- Kvadratisk bild på skärmar upp till 739px -->
+                    <source media="(min-width: 550px) and (max-width: 739px)" srcset="
+                        bilder_100x100/exterior(3)_300.webp 300w,     
+                        bilder_100x100/exterior(3)_400.webp 400w, 
+                        bilder_100x100/exterior(3)_500.webp 500w, 
+                        bilder_100x100/exterior(3)_600.webp 600w, 
+                        bilder_100x100/exterior(3)_700.webp 700w" sizes="70vw">
+                    <!-- Fallback (mobiler <740px): kvadratisk bild -->
+
+                    <img src="bilder_100x100/exterior(3)_700.webp" srcset="
+                        bilder_100x100/exterior(3)_300.webp 300w,     
+                        bilder_100x100/exterior(3)_400.webp 400w, 
+                        bilder_100x100/exterior(3)_500.webp 500w, 
+                        bilder_100x100/exterior(3)_600.webp 600w, 
+                        bilder_100x100/exterior(3)_700.webp 700w" sizes="70vw" fetchpriority="high"
+                        alt="Bild på slottet">
+                </picture>
+
+
+
+                <section class="text-ontop-content the-muave">
+
+                    <div class="monogram hero">
+                        <img src="logotype/monogram_darkest-muave_top.svg" alt="Logotyp">
+                    </div>
+
+                    <h1 class="hero">Kontakta oss</h1>
+
+                    <div class="monogram hero">
+                        <img src="logotype/monogram_darkest-muave_bottom.svg" alt="Logotyp">
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- ............................................... -->
+
+        <!-- Hero-desktop -->
+        <div class="standard-content-block">
+
+            <!-- Bild-text sektion "Kontaka oss" -->
+            <div class="hero-img-text-section the-muave">
+                <!-- Bild-sektion  -->
+                <div class="hero-img-container">
+
+                    <picture>
+                        <!-- Tablet 740px till 1099px: stående bilder -->
+                        <source media="(min-width: 740px) and (max-width: 1099px)" srcset="
+                            bilder_staende/exterior(3)_300.webp 300w,     
+                            bilder_staende/exterior(3)_400.webp 400w, 
+                            bilder_staende/exterior(3)_500.webp 500w,                                
+                            bilder_staende/exterior(3)_600.webp 600w, 
+                            bilder_staende/exterior(3)_700.webp 700w"
+                            sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 1200px">
+
+                        <!-- Desktop: 1100px eller större: 100x100-bilder -->
+                        <source media="(min-width: 1100px)" srcset="
+                            bilder_100x100/exterior(3)_300.webp 300w,     
+                            bilder_100x100/exterior(3)_400.webp 400w, 
+                            bilder_100x100/exterior(3)_500.webp 500w, 
+                            bilder_100x100/exterior(3)_600.webp 600w, 
+                            bilder_100x100/exterior(3)_700.webp 700w"
+                            sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 1200px">
+
+                        <!-- Fallback (mobiler <740px): stående bild -->
+                        <img src="bilder_100x100/exterior(3)_700.webp" srcset="
+                            bilder_100x100/exterior(3)_300.webp 300w,     
+                            bilder_100x100/exterior(3)_400.webp 400w, 
+                            bilder_100x100/exterior(3)_500.webp 500w, 
+                            bilder_100x100/exterior(3)_600.webp 600w, 
+                            bilder_100x100/exterior(3)_700.webp 700w"
+                            sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 1200px" alt="sovrum"
+                            fetchpriority="high">
+                    </picture>
+                </div>
+
+                <!-- Text  -->
+                <article class="hero-text-container">
+                    <div class="monogram hero">
+                        <img src="logotype/monogram_darkest-muave_top.svg" alt="Logotyp" fetchpriority="high">
+                    </div>
+
+                    <h1 class="hero">Kontakta oss</h1>
+
+
+                    <div class="monogram hero">
+                        <img src="logotype/monogram_darkest-muave_bottom.svg" alt="Logotyp">
+                    </div>
+                </article>
+            </div>
+        </div>
+        <!-- ....................................... -->
+
+        <div class="two-column-grid bgcolor-standard-light color-darkest-mauev">
+
+            <div class="content">
+                <!--  ................  Kontakt-formulär  ............................-->
+
+                <form class="small dark-muave" action="httpbin.org/post" method="post">
+                    <h2>Mejla oss</h2>
+                    <!-- .... Fieldset 1  ... -->
+
+
+                    <!-- Personuppgifter -->
+                    <fieldset>
+                        <div class="fieldset-item">
+
+                            <!--  Förnamn  -->
+                            <div class="field-item">
+                                <label class="label-display-block" for="firstname">* Förnamn</label>
+                                <input type="text" name="firstname" id="firstname" autocomplete="given-name" required>
+                            </div>
+
+                            <!--  Efternamn  -->
+                            <div class="field-item">
+                                <label class="label-display-block" for="lastname">* Efternamn</label>
+                                <input type="text" name="lastname" id="lastname" autocomplete="family-name" required>
+                            </div>
+                        </div>
+
+                        <!-- Kolumn2 -->
+                        <div class="fieldset-item">
+
+                            <!--  Mobilnummer  -->
+                            <div class="field-item">
+                                <label class="label-display-block" for="mobilenumber">Mobilnummer</label>
+                                <input type="tel" name="mobilenumber" id="mobilenumber">
+                            </div>
+
+                            <div class="field-item">
+                                <label class="label-display-block" for="email">* E-postadress</label>
+                                <input type="email" name="email" id="email" autocomplete="email" required>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- ........................................ -->
+
+                    <!-- .... Fieldset 2  ... -->
+                    <fieldset>
+                        <div class="span-2">
+                            <div class="item">
+                                <label class="label-display-block" for="message-for-personal">
+                                    * Meddelande
+                                </label>
+                                <textarea name="message-for-personal" id="message-for-personal" cols="30" rows="10"
+                                    required>
+                                    </textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="last">
+                        <div class="span-2">
+                            <div class="field-item span-2">
+
+                                <!--  Villkor och GDPR  -->
+
+                                <p class="form-text">* Villkor och personuppgiftspolicy</p>
+
+                                <!--  Checkbox  -->
+                                <label class="checkbox-container label-terms-crossbox">
+                                    Jag godkänner villkoren samt intygar att jag
+                                    läst och förstått personuppgiftspolicyn.
+
+
+                                    <input type="checkbox" name="gdpr" id="gdpr" value="yes">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+
+                            <button type="submit">Skicka</button>
+
+                        </div>
+                    </fieldset>
+
+                </form>
+            </div>
+
+
+
+            <!--  ............................. -->
+
+            <div id="hitta" class="aside bgcolor-standard-light color-darkest-muave">
+                <section class="flex">
+                    <h2 class="hr">Ring oss</h2>
+                    <hr>
+                    <div class="icons-container-column">
+                        <a href="tel:+46123456789">
+                            <i class="fa-solid fa-phone"></i>+46 (0)123 456 789</a>
+                    </div>
+                </section>
+
+                <section class="flex">
+                    <h2 class="hr">Hitta till oss</h2>
+                    <hr>
+                    <ul class="adress">
+                        <li>787 Rte de Tourreau </li>
+                        <li> 84260 Sarrians </li>
+                        <li>Frankrike</li>
+                    </ul>
+                </section>
+
+                <!--  Karta  -->
+                <div class="map-container">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91706.0859424225!2d4.808122515678404!3d44.087168887825555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b58eebe2c5e611%3A0x6bab937fc5a2de14!2sChateau%20de%20Tourreau!5e0!3m2!1ssv!2sse!4v1763033253910!5m2!1ssv!2sse"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--.....................................................................................-->
+
+    <!--........... Footer börjar här!  ..........-->
+
+    <footer class="muave">
+        <div class="top-section">
+
+            <!--  Logotype  -->
+            <div class="logo-container">
+                <img src="logotype/light-muave_neg_logotype.svg" class="logo-footer" alt="logotype"
+                    fetchpriority="high">
+            </div>
+
+            <!--  Ikoner  och kontaktinfo  -->
+            <div class="info-bar-footer">
+
+                <!--  Telefon  -->
+                <a href="tel:+46703288385" target="_blank">
+
+                    <svg class="icons-footer" xmlns="http://www.w3.org/2000/svg" height="23" width="23"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M224.2 89C216.3 70.1 195.7 60.1 176.1 65.4L170.6 66.9C106 84.5 50.8 147.1 66.9 223.3C104 398.3 241.7 536 416.7 573.1C493 589.3 555.5 534 573.1 469.4L574.6 463.9C580 444.2 569.9 423.6 551.1 415.8L453.8 375.3C437.3 368.4 418.2 373.2 406.8 387.1L368.2 434.3C297.9 399.4 241.3 341 208.8 269.3L253 233.3C266.9 222 271.6 202.9 264.8 186.3L224.2 89z">
+                        </path>
+                    </svg>
+                    Ring oss</a>
+
+                <!--  Kontakt kuvert  -->
+
+                <a href="kontakt.html" title="Kontakta oss">
+                    <svg class="icons-footer" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M125.4 128C91.5 128 64 155.5 64 189.4C64 190.3 64 191.1 64.1 192L64 192L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 192L575.9 192C575.9 191.1 576 190.3 576 189.4C576 155.5 548.5 128 514.6 128L125.4 128zM528 256.3L528 448C528 456.8 520.8 464 512 464L128 464C119.2 464 112 456.8 112 448L112 256.3L266.8 373.7C298.2 397.6 341.7 397.6 373.2 373.7L528 256.3zM112 189.4C112 182 118 176 125.4 176L514.6 176C522 176 528 182 528 189.4C528 193.6 526 197.6 522.7 200.1L344.2 335.5C329.9 346.3 310.1 346.3 295.8 335.5L117.3 200.1C114 197.6 112 193.6 112 189.4z">
+                        </path>
+                    </svg>
+                    Mejla oss
+                </a>
+
+                <!--   Hitta hit-pin  -->
+                <a href="kontakt.html#hitta" title="Hitta till oss">
+                    <svg class="icons-footer" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z">
+                        </path>
+                    </svg> Hitta till oss</a>
+
+                <!--  Instagram  -->
+                <a href="https://www.instagram.com" target="_blank">
+                    <svg class="icons-footer" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z">
+                        </path>
+                    </svg> Följ oss</a>
+
+
+
+            </div>
+        </div>
+
+        <div class="by-line-container">
+
+            <p class="by-line">© 2025, Angelica Tossman</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
